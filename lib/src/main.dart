@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zet_gram/src/model/home/tape_model.dart';
 import 'package:zet_gram/src/ui/menu/main_screen.dart';
+import 'package:zet_gram/src/ui/profile/profile_friend_screen.dart';
 
 // String token = "";
 
@@ -22,7 +24,19 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: ProfileFriendScreen(
+        TapeModel(
+          id: 1,
+          userImage: "userImage",
+          userName: "userName",
+          message: "message",
+          image: "image",
+          count: 12,
+          isFavorite: false,
+          comments: [],
+          time: "time",
+        ),
+      ),
     );
   }
 }
