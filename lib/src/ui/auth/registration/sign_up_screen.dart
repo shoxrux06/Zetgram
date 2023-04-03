@@ -77,6 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               child: Center(
                 child: TextFormField(
+                  autofocus: false,
                   decoration: InputDecoration(
                     hintText: "Create your username",
                     hintStyle: Styles.regularDisplay(AppTheme.grey80),
@@ -168,16 +169,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               padding: EdgeInsets.only(left: 20, right: 20, bottom: 3),
               decoration: BoxDecoration(
-                  color: AppTheme.white,
-                  borderRadius: BorderRadius.circular(28),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0, 10),
-                      color: Color.fromRGBO(147, 147, 147, 0.1),
-                      blurRadius: 75,
-                      spreadRadius: 0,
-                    )
-                  ]),
+                color: AppTheme.white,
+                borderRadius: BorderRadius.circular(28),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 10),
+                    color: Color.fromRGBO(147, 147, 147, 0.1),
+                    blurRadius: 75,
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
               child: Center(
                 child: TextFormField(
                   obscureText: _obscureText,
@@ -216,7 +218,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 setState(() {
                   loading = true;
                 });
-
                 Timer(
                   Duration(milliseconds: 1500),
                   () {
@@ -238,9 +239,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 });
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) {
-                    return MainScreen();
-                  }),
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return MainScreen();
+                    },
+                  ),
                 );
               } else {
                 BottomDialog.sendComplain(

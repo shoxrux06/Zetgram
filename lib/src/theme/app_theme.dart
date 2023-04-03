@@ -85,7 +85,7 @@ class AppTheme {
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: 0.2,
-    color: darkText,
+    color:  darkText,
   );
 
   static const TextStyle body1 = TextStyle(

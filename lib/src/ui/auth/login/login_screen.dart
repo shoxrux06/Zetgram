@@ -14,7 +14,6 @@ import 'package:zet_gram/src/utils/utils.dart';
 
 import '../forgot_password_screen.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -84,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ]),
                 child: Center(
                   child: TextFormField(
+                    autofocus: false,
                     style: Styles.semiBoldDisplay(AppTheme.dark),
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -123,6 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             child: TextFormField(
+              // autofocus: true,
               style: Styles.semiBoldDisplay(AppTheme.dark),
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -272,29 +273,33 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(
-              top: 20,
-              right: 25,
-              left: 25,
-              bottom: 70,
-            ),
-            width: MediaQuery.of(context).size.width,
-            height: 56,
-            decoration: BoxDecoration(
-                color: AppTheme.white, borderRadius: BorderRadius.circular(28)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset("assets/icons/google_icon.svg"),
-                SizedBox(
-                  width: 16,
-                ),
-                Text(
-                  "Google",
-                  style: Styles.boldButton(AppTheme.dark),
-                ),
-              ],
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              margin: EdgeInsets.only(
+                top: 20,
+                right: 25,
+                left: 25,
+                bottom: 70,
+              ),
+              width: MediaQuery.of(context).size.width,
+              height: 56,
+              decoration: BoxDecoration(
+                  color: AppTheme.white,
+                  borderRadius: BorderRadius.circular(28)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset("assets/icons/google_icon.svg"),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Text(
+                    "Google",
+                    style: Styles.boldButton(AppTheme.dark),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

@@ -75,7 +75,9 @@ class _ChatScreenState extends State<ChatScreen> {
                           direction: Axis.horizontal,
                           actionExtentRatio: 1 / 5,
                           dismissal: SlidableDismissal(
-                            onDismissed: (actionType) {},
+                            onDismissed: (actionType) {
+                              BottomDialog.deleteChat(context, index);
+                            },
                             child: SlidableDrawerDismissal(),
                           ),
                           actionPane: SlidableBehindActionPane(),
@@ -109,7 +111,6 @@ class _ChatScreenState extends State<ChatScreen> {
                           ],
                           child: GestureDetector(
                             onTap: () {
-                              BottomDialog.deleteChat(context, index);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

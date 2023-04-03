@@ -5,115 +5,120 @@ import 'package:rxbus/rxbus.dart';
 import 'package:zet_gram/src/bloc/chat_block.dart';
 import 'package:zet_gram/src/bloc/home_bloc.dart';
 import 'package:zet_gram/src/database/database_helper_comment.dart';
-import 'package:zet_gram/src/model/bus/loding_model.dart';
 import 'package:zet_gram/src/model/home/comment_model.dart';
 import 'package:zet_gram/src/theme/app_theme.dart';
 import 'package:zet_gram/src/utils/styles.dart';
+import 'package:zet_gram/src/model/bus/loding_model.dart';
 import 'package:zet_gram/src/utils/utils.dart';
 
 class BottomDialog {
   static void sendComplain(
-      BuildContext context, String title, String content, String btnText) {
+    BuildContext context,
+    String title,
+    String content,
+    String btnText,
+  ) {
     showModalBottomSheet(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-        context: context,
-        isScrollControlled: true,
-        builder: (context) {
-          return StatefulBuilder(
-            builder: (BuildContext contex, setState) {
-              return Container(
-                height: 487,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20)),
-                  color: AppTheme.white,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 15,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (BuildContext contex, setState) {
+            return Container(
+              height: 487,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
+                color: AppTheme.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    width: 114,
+                    height: 5,
+                    decoration: BoxDecoration(
+                      color: AppTheme.grey20,
+                      borderRadius: BorderRadius.circular(3),
                     ),
-                    Container(
-                      width: 114,
-                      height: 5,
-                      decoration: BoxDecoration(
-                        color: AppTheme.grey20,
-                        borderRadius: BorderRadius.circular(3),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Container(
+                    width: 78,
+                    height: 78,
+                    child: SvgPicture.asset("assets/icons/failed.svg"),
+                  ),
+                  SizedBox(
+                    height: 45,
+                  ),
+                  Text(
+                    "$title",
+                    style: Styles.boldH2(AppTheme.dark),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20, left: 25, right: 25),
+                    child: Text(
+                      "$content",
+                      style: Styles.regularLabel(
+                        AppTheme.dark80,
                       ),
+                      textAlign: TextAlign.center,
                     ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Container(
-                      width: 78,
-                      height: 78,
-                      child: SvgPicture.asset("assets/icons/failed.svg"),
-                    ),
-                    SizedBox(
-                      height: 45,
-                    ),
-                    Text(
-                      "$title",
-                      style: Styles.boldH2(AppTheme.dark),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 20, left: 25, right: 25),
-                      child: Text(
-                        "$content",
-                        style: Styles.regularLabel(
-                          AppTheme.dark80,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Expanded(
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            RxBus.post(LoadingModel(loading: false),
-                                tag: "EVENT_LOADING_LOGIN");
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 56,
-                            margin: EdgeInsets.only(
-                              top: 58,
-                              left: 25,
-                              right: 25,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppTheme.primary,
-                              borderRadius: BorderRadius.circular(28),
-                              boxShadow: [
-                                BoxShadow(
-                                    offset: Offset(0, 6),
-                                    spreadRadius: 0,
-                                    blurRadius: 75,
-                                    color: Color.fromRGBO(100, 87, 87, 0.05)),
-                              ],
-                            ),
-                            child: Center(
-                              child: Text(
-                                "$btnText",
-                                style: Styles.boldButton(AppTheme.white),
-                              ),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          RxBus.post(LoadingModel(loading: false),
+                              tag: "EVENT_LOADING_LOGIN");
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 56,
+                          margin: EdgeInsets.only(
+                            top: 58,
+                            left: 25,
+                            right: 25,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppTheme.primary,
+                            borderRadius: BorderRadius.circular(28),
+                            boxShadow: [
+                              BoxShadow(
+                                  offset: Offset(0, 6),
+                                  spreadRadius: 0,
+                                  blurRadius: 75,
+                                  color: Color.fromRGBO(100, 87, 87, 0.05)),
+                            ],
+                          ),
+                          child: Center(
+                            child: Text(
+                              "$btnText",
+                              style: Styles.boldButton(AppTheme.white),
                             ),
                           ),
                         ),
                       ),
-                    )
-                  ],
-                ),
-              );
-            },
-          );
-        });
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 
   static void deleteChat(BuildContext context, int index) {
@@ -396,7 +401,7 @@ class BottomDialog {
                                               borderRadius:
                                                   BorderRadius.circular(38),
                                               child: Image.asset(
-                                                "assets/images/thor.png",
+                                                "assets/images/prof.jpg",
                                                 width: 38,
                                                 height: 38,
                                                 fit: BoxFit.cover,
@@ -408,8 +413,7 @@ class BottomDialog {
                                               TextSpan(
                                                 children: <InlineSpan>[
                                                   TextSpan(
-                                                    text:
-                                                        "${snapshot.data![index].userName} ",
+                                                    text: "Shoxrux ",
                                                     style: Styles.boldContent(
                                                         AppTheme.dark),
                                                   ),

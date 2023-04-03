@@ -20,7 +20,7 @@ class _StoryScreenState extends State<StoryScreen> {
   late PageController _pageController;
   int currentIndex = 0;
   double width = 0.0;
-  Timer timer = new Timer(Duration(seconds: 0), (){});
+  Timer timer = new Timer(Duration(seconds: 0), () {});
 
   @override
   void initState() {
@@ -180,7 +180,9 @@ class _StoryScreenState extends State<StoryScreen> {
                           )),
                       child: Row(
                         children: [
-                          SizedBox(width: 20,),
+                          SizedBox(
+                            width: 20,
+                          ),
                           Expanded(
                             child: TextFormField(
                               decoration: InputDecoration(
@@ -191,17 +193,19 @@ class _StoryScreenState extends State<StoryScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 15,),
+                          SizedBox(
+                            width: 15,
+                          ),
                           GestureDetector(
-                            onTap: (){
-
-                            },
+                            onTap: () {},
                             child: SvgPicture.asset(
                               "assets/icons/send.svg",
                               color: AppTheme.white,
                             ),
                           ),
-                          SizedBox(width: 20,),
+                          SizedBox(
+                            width: 20,
+                          ),
                         ],
                       ),
                     ),

@@ -121,6 +121,7 @@ class _ChatItemScreenState extends State<ChatItemScreen> {
                     padding: EdgeInsets.only(
                       left: 25,
                       right: 25,
+                      bottom: snapshot.data!.length.isFinite ? 25 : 0,
                     ),
                     itemCount: snapshot.data!.length,
                     reverse: true,
@@ -132,7 +133,7 @@ class _ChatItemScreenState extends State<ChatItemScreen> {
                         child: Container(
                           margin: snapshot.data![index].isMe
                               ? EdgeInsets.only(
-                                  top: 35,
+                                  top: 30,
                                   left: 25,
                                 )
                               : EdgeInsets.only(
@@ -254,7 +255,7 @@ class _ChatItemScreenState extends State<ChatItemScreen> {
             ),
           ),
           Container(
-            height: 120,
+            height: 121,
             color: AppTheme.white,
             padding: EdgeInsets.only(
               top: 20,
@@ -264,8 +265,8 @@ class _ChatItemScreenState extends State<ChatItemScreen> {
             ),
             child: Container(
               padding: EdgeInsets.only(
-                top: 15,
-                bottom: 15,
+                top: 13,
+                bottom: 13,
                 left: 20,
                 right: 20,
               ),
@@ -274,8 +275,6 @@ class _ChatItemScreenState extends State<ChatItemScreen> {
                 borderRadius: BorderRadius.circular(26),
               ),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset("assets/icons/smile.svg"),
                   SizedBox(

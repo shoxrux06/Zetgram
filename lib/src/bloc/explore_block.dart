@@ -1,9 +1,9 @@
 import 'dart:async';
-
 import 'package:rxdart/rxdart.dart';
 import 'package:zet_gram/src/model/explore_model.dart';
 
 ExploreBlock exploreBlock = new ExploreBlock();
+
 class ExploreBlock {
   final _exploreFetcher = PublishSubject<List<ExploreModel>>();
 

@@ -15,9 +15,12 @@ class ChatBlock {
   Observable<List<ChatItemModel>> get allChatItem => _chatItemFetcher.stream;
 
   fetchAllChat() async {
-    Timer(Duration(milliseconds: 1000), () {
-      _chatFetcher.sink.add(chat);
-    });
+    Timer(
+      Duration(milliseconds: 1000),
+      () {
+        _chatFetcher.sink.add(chat);
+      },
+    );
   }
 
   fetchDeleteItem(int index) async {

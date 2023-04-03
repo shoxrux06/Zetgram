@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:rxdart/rxdart.dart';
+import 'package:zet_gram/src/model/explore_model.dart';
 import 'package:zet_gram/src/model/home/home_model.dart';
 import 'package:zet_gram/src/model/home/story_model.dart';
 import 'package:zet_gram/src/model/home/tape_model.dart';
@@ -12,6 +13,8 @@ class HomeBloc {
   final _repository = Repository();
 
   final _homeFetcher = PublishSubject<HomeModel>();
+
+  final _exploreFetcher = PublishSubject<ExploreModel>();
 
   Observable<HomeModel> get allHome => _homeFetcher.stream;
 
